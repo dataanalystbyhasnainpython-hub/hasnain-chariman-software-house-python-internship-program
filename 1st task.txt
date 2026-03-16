@@ -1,0 +1,33 @@
+A simple command-line Python program that asks users for their details and creates a nice-looking profile summary. Built as part of a Python Developer Internship task.
+
+How it works
+The program asks the user 6 questions one by one:
+
+Full name
+
+Age
+
+City
+
+Profession/Field of study
+
+Favorite programming language
+
+Short bio
+
+Once all info is entered, it displays everything in a clean, formatted box with proper spacing and borders.
+
+Concepts I Used
+This was my first Python task so I kept things simple:
+
+Variables - stored each piece of info in its own variable (full_name, age, city, etc.)
+
+Data Types - used strings for text inputs, converted age to integer
+
+Type Casting - age comes in as string from input(), so I used int() to change it to number
+
+Input Function - used input() to get data from user
+
+f-strings - made the output look nice and professional, way cleaner than using + to combine strings
+
+Print Formatting - added those dashed lines and equal signs to make it look organized
