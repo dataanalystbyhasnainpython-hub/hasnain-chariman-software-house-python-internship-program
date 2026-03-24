@@ -1,4 +1,5 @@
 # Patterns and Sequence Builder
+#usingANSI escape codes.
 RED = '\033[91m'
 GREEN = '\033[92m'
 YELLOW = '\033[93m'
@@ -7,6 +8,7 @@ MAGENTA = '\033[95m'
 CYAN = '\033[96m'
 BOLD = '\033[1m'
 END = '\033[0m'
+#Main program code According to Required pattern shapes
 def showStarTriangle(size):
     print(BOLD + GREEN + "\nStar Triangle Pattern:" + END)
     print(CYAN + "~" * 40 + END)
