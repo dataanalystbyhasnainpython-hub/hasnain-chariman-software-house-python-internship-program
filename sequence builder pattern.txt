@@ -1,0 +1,97 @@
+================================================================================
+                           PATTERN BUILDER
+================================================================================
+
+PROGRAM OVERVIEW
+----------------
+A Python program that generates 4 different star and number patterns using loops.
+User selects pattern type and size, program displays the pattern.
+
+PATTERN TYPES
+-------------
+1. Star Triangle      - Pyramid shape with stars
+2. Reverse Star       - Diamond shape with stars  
+3. Number Triangle    - Numbers 1,12,123,1234
+4. Number Pyramid     - Centered numbers 1,121,12321
+
+PROGRAM FLOW
+------------
+1. Display menu with 4 options
+2. User selects pattern (1-4) or exit (0)
+3. User enters pattern size (positive number)
+4. Program validates input
+5. Pattern is generated and displayed
+6. User can generate another pattern or exit
+
+LOGIC EXPLANATION
+-----------------
+Star Triangle:
+- Upper half: prints * increasing (1 to size)
+- Lower half: prints * decreasing (size-1 to 1)
+
+Reverse Star:
+- First half: prints * decreasing (size to 1)
+- Second half: prints * increasing (2 to size)
+
+Number Triangle:
+- Row i prints numbers 1 to i
+
+Number Pyramid:
+- Prints (size - row) spaces for centering
+- Prints numbers 1 to row
+- Prints numbers row-1 down to 1
+
+HOW TO RUN
+----------
+1. Save file as pattern_builder.py
+2. Open terminal
+3. Run: python pattern_builder.py
+4. Follow on-screen prompts
+
+INPUT VALIDATION
+----------------
+- Choice must be 0-4
+- Size must be positive integer
+- Invalid inputs show error and ask again
+
+EXAMPLE OUTPUT
+--------------
+Patterns:
+1. Star Triangle
+2. Reverse Star
+3. Number Triangle
+4. Number Pyramid
+0. Exit
+
+Enter choice 0-4: 1
+Enter size: 3
+
+Star Triangle Pattern:
+~~~~~~~~~~~~~~~~~~~~~~~~
+*
+**
+***
+**
+*
+~~~~~~~~~~~~~~~~~~~~~~~~
+Pattern generated!
+
+Another pattern? (y/n): n
+
+Goodbye!
+
+CODE STRUCTURE
+--------------
+- 4 functions: showStarTriangle, showReverseStar, showNumberTriangle, showNumberPyramid
+- Main loop for multiple patterns
+- Input validation with isdigit()
+- ANSI color codes for colored output
+
+BONUS FEATURES
+--------------
+- Multiple patterns without restarting
+- Center formatting for pyramid
+- Functions for each pattern
+- Colored output with ANSI codes
+
+================================================================================
