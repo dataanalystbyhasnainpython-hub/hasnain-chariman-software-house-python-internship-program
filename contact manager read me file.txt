@@ -1,0 +1,90 @@
+# CONTACT MANAGEMENT SYSTEM
+## Python File Handling Project
+
+### PROJECT OVERVIEW
+This is a command-line contact management system that demonstrates file handling operations in Python. Users can add, view, search, delete, and update contacts. All data is stored in a text file.
+
+---
+
+### PROGRAM LOGIC EXPLANATION
+
+#### 1. FILE HANDLING OPERATIONS
+
+**open()** - Opens files in different modes
+- Used in all functions to access the contacts file
+- Modes: "r" for read, "w" for write, "a" for append
+
+**read()** - Reads data from files
+- readline() - Reads single line (header)
+- readlines() - Reads all lines at once
+
+**write()** - Writes data to files
+- Used when creating or updating the file
+- Overwrites existing content
+
+**append()** - Adds data to existing file
+- Used when adding new contacts
+- Keeps existing data intact
+
+---
+
+#### 2. PROGRAM FLOW
+
+**Step 1: File Initialization**
+- Checks if contacts.txt exists
+- Creates file with headers if it doesn't exist
+
+**Step 2: Main Menu Loop**
+- Displays 6 options repeatedly
+- Takes user input (1-6)
+- Calls appropriate function based on choice
+
+**Step 3: CRUD Operations**
+
+**CREATE (Add Contact)**
+1. User enters name, email, phone, address
+2. System generates unique ID using timestamp
+3. Opens file in append mode
+4. Writes new contact with pipe separator
+5. Closes file
+
+**READ (View Contacts)**
+1. Opens file in read mode
+2. Reads header and all contacts
+3. Displays in formatted table
+4. Shows total count
+5. Closes file
+
+**SEARCH (Find Contact)**
+1. User chooses search by name or ID
+2. Opens file and reads all contacts
+3. Searches for matching records
+4. Displays results
+5. Closes file
+
+**DELETE (Remove Contact)**
+1. User enters contact ID
+2. Reads all contacts from file
+3. Finds target contact
+4. Asks for confirmation
+5. Creates new list without deleted contact
+6. Opens file in write mode
+7. Writes back updated contacts
+8. Closes file
+
+**UPDATE (Edit Contact)**
+1. User enters contact ID
+2. Reads all contacts from file
+3. Finds target contact
+4. Shows current values
+5. User enters new values (can leave blank)
+6. Creates updated contact record
+7. Opens file in write mode
+8. Writes back all contacts with updates
+9. Closes file
+
+---
+
+#### 3. DATA STRUCTURE
+
+**File Format:** contacts.txt
