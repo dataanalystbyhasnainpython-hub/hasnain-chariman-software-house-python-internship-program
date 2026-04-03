@@ -1,0 +1,165 @@
+===============================================================================
+                    MY LIBRARY SYSTEM
+                    (How I Made It)
+===============================================================================
+
+Hello,
+
+I made a Library Management System. Here is how it works in simple words.
+
+===============================================================================
+THE 4 PARTS OF MY PROGRAM
+===============================================================================
+
+PART 1: BOOK
+------------
+
+This part is for one single book.
+
+What it does:
+- Saves book ID, title, author
+- Knows if book is with someone or in library
+- Knows who took the book
+- Can tell you if book is free
+- Can give book to a member
+- Can take book back from member
+
+A book is just one thing. Like a real book on a shelf.
+
+
+PART 2: LIBRARY
+---------------
+
+This part holds all the books.
+
+What it does:
+- Keeps a list of all books
+- Adds new books to list
+- Removes books from list (only if not borrowed)
+- Finds a book by its ID number
+- Looks for books by title or ID
+- Gives a book to a member
+- Takes a book back from member
+- Shows all books on screen
+- Shows numbers like total books, free books, borrowed books
+
+This is like the whole library building with many books inside.
+
+
+PART 3: MENU MANAGER
+--------------------
+
+This part talks to the person using the program.
+
+What it does:
+- Shows a menu with numbers 1 to 8
+- Asks what you want to do
+- Checks if you typed a correct number
+- Stops the screen so you can read messages
+- Asks for book details when you add a book
+- Asks what you want to search for
+
+This is like the screen you see when you use a computer.
+
+
+PART 4: LIBRARY SYSTEM
+----------------------
+
+This part starts everything and runs the show.
+
+What it does:
+- Starts the program
+- Says welcome
+- Connects the menu and the library together
+- Keeps running until you say exit
+- Does what you pick from the menu
+- Closes the program nicely
+
+This is like the ON button for the whole system.
+
+
+===============================================================================
+HOW THEY WORK TOGETHER
+===============================================================================
+
+Here is what happens step by step:
+
+1. You run the program
+2. Library System starts
+3. Library System creates a Library and a Menu Manager
+4. Menu Manager shows you the menu
+5. You pick number 1 to add a book
+6. Library System tells Menu Manager to ask for book details
+7. You type the book ID, title, and author
+8. Library System gives these to Library
+9. Library creates a new Book with your details
+10. Library adds the Book to its list
+11. Library says "Done!"
+12. Library System tells Menu Manager to show "Success!"
+13. Menu Manager pauses so you can read
+14. Menu Manager shows the menu again
+
+See how each part does its own job?
+
+
+===============================================================================
+WHY I MADE IT THIS WAY
+===============================================================================
+
+I could put all code in one file. But that would be messy.
+
+This way is better because:
+
+- If Book has a problem, I only fix Book part
+- If Menu looks bad, I only fix Menu part
+- If I want new features, I know where to put them
+- Each part is small and easy to understand
+- Other people can read my code easily
+
+
+===============================================================================
+WHAT EACH PART OWNS
+===============================================================================
+
+Library System OWNS a Library (like you own a car)
+Library System OWNS a Menu Manager (like you own a phone)
+
+Library HAS MANY Books (like a bag has many apples)
+
+Book can be alone (a book does not need a library to exist)
+
+Menu Manager just TALKS to others (it does not own anything)
+
+
+===============================================================================
+WHAT I CAN ADD LATER
+===============================================================================
+
+Because I made it this way, I can easily add:
+
+- Audio books (same as Book but with file size)
+- Members (people who borrow books)
+- Due dates (when to bring book back)
+- Late fees (money if book is late)
+
+I do not need to change everything. I just add new parts.
+
+
+===============================================================================
+SIMPLE SUMMARY
+===============================================================================
+
+Each part has ONE job:
+
+- Book = one single book
+- Library = all books together
+- Menu Manager = shows menu and asks questions
+- Library System = starts and runs everything
+
+They work together but do not mess with each other.
+
+That is why Object Oriented Programming is good. It is like real life.
+
+Thank you for reading!
+
+===============================================================================
