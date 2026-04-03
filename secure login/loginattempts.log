@@ -1,0 +1,16 @@
+User: ali haider | Success: False | Message: Invalid credentials
+User: intern2026 | Success: False | Invalid credentials
+User: intern2026 | Success: False | Invalid credentials
+User: \dxhfn | Success: False | Invalid credentials
+System locked after 3 failed attempts
+User: admin 123 | Success: False | Invalid credentials
+User: EMPTY | Success: False | Empty input
+User: EMPTY | Success: False | Empty input
+System locked due to empty input
+User: intern2026 | Success: True | Login successful
+User: intern2026 | Success: True | Login successful
+User: ali haider | Success: False | Invalid credentials
+User: jack | Success: False | Invalid credentials
+User: hitlar | Success: False | Invalid credentials
+System locked after 3 failed attempts
+User: admin | Success: True | Login successful

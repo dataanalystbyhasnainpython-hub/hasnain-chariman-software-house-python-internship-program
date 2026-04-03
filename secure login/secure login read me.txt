@@ -1,0 +1,145 @@
+SECURE LOGIN SYSTEM - README FILE
+=================================
+
+WHAT THIS PROGRAM DOES
+This program asks for username and password. You get 3 tries. After 3 wrong tries, the system locks.
+
+
+HOW THE PROGRAM RUNS STEP BY STEP
+
+Step 1
+You run the program. A welcome message appears.
+
+Step 2
+Program asks "Enter username". You type your username and press Enter.
+
+Step 3
+Program asks "Enter password". You type your password and press Enter. Nothing shows on screen while typing. This is normal and keeps your password safe.
+
+Step 4
+Program checks if username and password are empty. If empty, program shows error and counts this as one attempt.
+
+Step 5
+Program checks if username and password match the stored credentials.
+
+Step 6
+If correct, program shows "Login successful" with your username and ends.
+
+Step 7
+If wrong, program shows "Invalid credentials" and tells you how many attempts left.
+
+Step 8
+After 3 wrong attempts, program shows "System locked" and ends.
+
+
+WHAT HAPPENS IN EACH SITUATION
+
+Correct login - Program ends with success message.
+
+Wrong password - Program lets you try again.
+
+Wrong username - Program lets you try again.
+
+Empty input - Program shows error and counts as one attempt.
+
+3 wrong attempts - Program locks and ends.
+
+
+VALID CREDENTIALS TO USE
+
+Username: intern2026    Password: HK@1234
+Username: admin         Password: flask
+Username: developer     Password: hasnain python developer
+
+
+WHAT THE PROGRAM CHECKS
+
+Check 1 - Is username empty?
+Check 2 - Is password empty?
+Check 3 - Does username exist in system?
+Check 4 - Does password match that username?
+Check 5 - How many attempts used so far?
+
+
+WHAT GETPASS MODULE DOES
+
+Getpass hides your password while typing. You cannot see the letters or dots. Just type the password and press Enter. The program receives what you typed even though you cannot see it.
+
+
+WHAT THE LOG FILE DOES
+
+Program creates a file called loginattempts.log. Every attempt is written to this file. You can open this file to see who tried to login and whether they succeeded.
+
+
+SIMPLE EXAMPLE OF PROGRAM RUN
+
+You see this on screen:
+
+========================================
+     SECURE LOGIN SYSTEM
+========================================
+
+Enter username: intern2026
+Enter password: (nothing shows while typing)
+
+========================================
+SUCCESS: Login successful! Welcome intern2026.
+========================================
+
+Login attempts logged to 'loginattempts.log'
+
+
+EXAMPLE WHEN PASSWORD IS WRONG
+
+========================================
+     SECURE LOGIN SYSTEM
+========================================
+
+Enter username: intern2026
+Enter password: (typing something wrong)
+
+ERROR: Invalid credentials! You have 2 attempts left.
+
+Enter username: intern2026
+Enter password: (typing correct password)
+
+========================================
+SUCCESS: Login successful! Welcome intern2026.
+========================================
+
+
+EXAMPLE WHEN SYSTEM LOCKS
+
+========================================
+     SECURE LOGIN SYSTEM
+========================================
+
+Enter username: wronguser
+Enter password: wrongpass
+
+ERROR: Invalid credentials! You have 2 attempts left.
+
+Enter username: wronguser2
+Enter password: wrongpass2
+
+ERROR: Invalid credentials! You have 1 attempts left.
+
+Enter username: wronguser3
+Enter password: wrongpass3
+
+ERROR: Invalid credentials! You have 0 attempts left.
+
+LOCKED: Maximum attempts reached. System locked!
+
+Login attempts logged to 'loginattempts.log'
+
+
+HOW TO RUN THE PROGRAM
+
+1. Save the program as loginsystem.py
+2. Open command prompt or terminal
+3. Type: python loginsystem.py
+4. Press Enter
+
+
+END OF README
