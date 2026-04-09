@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "querytimestamp": "2026-04-09T23:07:28.043453",
+    "city": "India",
+    "temperature": 25.82,
+    "humidity": 49,
+    "windspeed": 0.14,
+    "weatherdescription": "Overcast clouds",
+    "weathermain": "Clouds",
+    "country": "UG",
+    "feelslike": 25.74,
+    "pressure": 1010,
+    "realtime": true
+  },
+  {
+    "id": 2,
+    "querytimestamp": "2026-04-09T23:39:57.751419",
+    "city": "China",
+    "temperature": 24.92,
+    "humidity": 76,
+    "windspeed": 4.08,
+    "weatherdescription": "Clear sky",
+    "weathermain": "Clear",
+    "country": "CN",
+    "feelslike": 25.45,
+    "pressure": 1008
+  }
+]
