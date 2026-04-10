@@ -1,0 +1,111 @@
+EADME - Real-Time Currency Converter
+=====================================
+
+WHAT THIS APPLICATION DOES
+-------------------------
+This is a currency converter that uses live exchange rates from the internet.
+You can convert money from one currency to another in real-time.
+
+MAIN FEATURES
+------------
+1. Convert single amount between currencies
+2. Convert multiple amounts at once
+3. View live exchange rates
+4. Save conversion history automatically
+5. Export history to CSV or JSON files
+
+HOW TO USE
+---------
+1. Enter the amount you want to convert
+2. Select "From" currency (what you have)
+3. Select "To" currency (what you want)
+4. Click CONVERT button
+5. Result shows immediately with current exchange rate
+
+MULTIPLE CONVERSIONS
+-------------------
+1. Go to "Multiple Conversions" section
+2. Enter amounts separated by commas (Example: 100, 250, 500)
+3. Click "Convert All Amounts" button
+4. All results appear in a new window
+5. Each conversion saves to history
+
+HISTORY FEATURE
+--------------
+- All conversions save automatically as JSON file
+- File name: conversion_history.json
+- File location: Same folder as the application
+- Auto-save happens after every conversion
+- No need to manually save each time
+
+LIVE RATES PANEL
+---------------
+- Shows current exchange rates
+- Select base currency to see rates against it
+- Click Refresh to update rates
+- Updates automatically when you change base currency
+
+HOW IT WORKS BEHIND THE SCENES
+----------------------------
+1. Application connects to free currency API on internet
+2. Fetches latest exchange rates when needed
+3. Calculates conversion using live rate
+4. Saves each conversion with date and time
+5. Stores history in JSON file on your computer
+6. Caches rates for 5 minutes to reduce API calls
+
+TECHNICAL DETAILS
+----------------
+- Built with Python and Tkinter for GUI
+- Uses ExchangeRate-API for live rates
+- JSON file format for history storage
+- Multi-threaded for smooth performance
+- Error handling for no internet connection
+
+FILE STRUCTURE
+-------------
+main.py                  - Main application file
+conversion_history.json  - Auto-created history file
+
+REQUIREMENTS
+-----------
+- Python 3.7 or higher
+- Internet connection for live rates
+- Required Python packages: requests, tkinter
+
+ERROR HANDLING
+-------------
+- Shows message if no internet connection
+- Validates input amounts
+- Handles invalid currency codes
+- Displays API errors if they occur
+
+TIPS
+----
+- Double-click any history item to see details
+- Use Quick Select buttons for popular currencies
+- Swap button exchanges From and To currencies
+- Status bar shows current operation status
+
+DATA STORAGE
+-----------
+All conversion history stores in JSON format with:
+- Amount converted
+- From and To currencies  
+- Exchange rate used
+- Converted amount result
+- Exact date and time of conversion
+
+AUTO-SAVE FEATURE
+----------------
+Every conversion automatically saves to history file.
+No manual saving required.
+File creates automatically on first conversion.
+All data preserves between application sessions.
+
+SUPPORTED CURRENCIES
+-------------------
+Over 150 currencies supported including:
+USD, EUR, GBP, JPY, AUD, CAD, CHF, CNY, INR, PKR
+And many more worldwide currencies
+
