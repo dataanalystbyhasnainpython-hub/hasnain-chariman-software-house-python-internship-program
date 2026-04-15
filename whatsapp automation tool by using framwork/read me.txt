@@ -1,0 +1,218 @@
+================================================================================
+                    WHATSAPP AUTOMATION TOOL - README
+================================================================================
+
+📌 WHAT IS THIS TOOL?
+This tool sends WhatsApp messages automatically using a web browser.
+You can send text messages and media files to individuals and groups.
+
+================================================================================
+📌 REQUIRED LIBRARIES (WHAT TO INSTALL)
+================================================================================
+
+Open Command Prompt or Terminal and type:
+
+pip install Flask flask-socketio pyautogui pyperclip schedule
+
+What each library does:
+
+Flask
+- Creates the website you see in your browser
+- Handles all the buttons and forms
+- Like the waiter that takes your order
+
+flask-socketio  
+- Shows live progress when sending messages
+- Updates the screen without refreshing
+- Like a walkie-talkie between browser and program
+
+pyautogui
+- Controls your mouse and keyboard automatically
+- Clicks buttons and types text in WhatsApp Web
+- Like a robot that operates your computer
+
+pyperclip
+- Copies and pastes text
+- Helps send long messages reliably
+- Like having Ctrl+C and Ctrl+V on speed dial
+
+schedule
+- Sends messages at specific times you set
+- Like an alarm clock for your messages
+
+================================================================================
+📌 HOW THE WEB PART WORKS (BROWSER SIDE)
+================================================================================
+
+The Browser (What You See)
+- Shows a clean interface with tabs
+- You type phone numbers and messages
+- You click buttons to upload files
+- You press Send to start sending
+
+Behind The Scenes
+- When you click a button, browser sends request to Flask
+- Flask processes your request
+- Browser shows you the result
+
+Live Updates
+- Socket.IO keeps connection open
+- Progress bar updates in real time
+- You see "Sending..." then "Sent!" without refreshing
+
+The Flow:
+1. You fill form in browser
+2. Click Send button
+3. Request goes to Flask server
+4. Flask tells Python what to do
+5. Progress shows in browser
+6. You see final result
+
+================================================================================
+📌 HOW THE PYTHON PART WORKS (SERVER SIDE)
+================================================================================
+
+Opening WhatsApp Web
+- Program opens web.whatsapp.com in your browser
+- Waits 15-20 seconds for page to fully load
+- Makes sure WhatsApp is ready
+
+Finding the Right Chat
+For Individual:
+- Uses phone number to open specific chat
+- Opens link like: whatsapp.com/send?phone=923001234567
+
+For Group:
+- Clicks search box at top of WhatsApp
+- Types exact group name
+- Presses Enter to open group chat
+
+Sending Text Messages
+- Clicks message input box
+- Pastes your message using clipboard
+- Presses Enter key to send
+- Waits for message to go through
+
+Closing Cleanly
+- Presses Ctrl+W to close the chat tab
+- Ready for next message
+
+================================================================================
+📌 HOW MEDIA FILES ARE HANDLED (IMPORTANT PART)
+================================================================================
+
+This is the special part that makes sure files send as real media,
+not as text or file paths.
+
+Step 1: File Upload
+- You select a file from your computer
+- File gets saved in "uploads" folder
+- Program checks file type (image, video, audio, or document)
+- Program checks file size
+
+Step 2: Clicking Attachment Button
+- Program finds the paperclip icon in WhatsApp
+- Clicks it to open the attachment menu
+- Waits for menu to appear
+
+Step 3: Selecting Correct Media Type
+The menu has these options in order:
+- Photos & Videos (for images and video files)
+- Camera (not used)
+- Document (for PDF, Word, audio files)
+- Contact (not used)
+
+Program selects based on file type:
+- Images and Videos → Selects "Photos & Videos"
+- Documents and Audio → Selects "Document"
+
+Step 4: File Dialog
+- Windows/Mac file picker window opens
+- Program copies file path to clipboard
+- Pastes path into file dialog
+- Presses Enter to select file
+
+Step 5: Upload and Send
+- WhatsApp starts uploading the file
+- Program calculates wait time based on file size
+- Bigger files get more time to upload
+- Shows countdown for large files
+- After upload, presses Enter to send
+
+Step 6: Confirmation
+- File appears as actual image/video/document in chat
+- Not as a text file path
+- Recipient sees proper media preview
+
+File Types Supported:
+Images: jpg, jpeg, png, gif, bmp, webp
+Videos: mp4, avi, mov, mkv, webm
+Audio: mp3, wav, ogg, m4a, aac
+Documents: pdf, doc, docx, xls, xlsx, txt, zip
+
+Maximum File Size: 100 MB
+
+================================================================================
+📌 WHY MEDIA FILES SOMETIMES SEND AS TEXT
+================================================================================
+
+Common Problems and Solutions:
+
+Problem: File sends as text path like "C:\Users\photo.jpg"
+Cause: Program typed file path into message box instead of using attachment button
+
+Problem: Attachment button not found
+Cause: WhatsApp Web layout changed or page not fully loaded
+Solution: Wait longer for page to load, use correct screen coordinates
+
+Problem: Wrong menu option selected
+Cause: Menu order different than expected
+Solution: Program uses correct arrow key presses for each file type
+
+Problem: File dialog doesn't open
+Cause: Browser security blocking file access
+Solution: Program clicks attachment button correctly, not typing path
+
+Our Fix:
+- Always uses attachment button (paperclip icon)
+- Selects correct menu option for file type
+- Uses file dialog properly (not typing path into chat)
+- Waits appropriate time for upload based on file size
+
+================================================================================
+📌 FILE STRUCTURE
+================================================================================
+
+uploads/
+- Stores all files you upload temporarily
+- Files are used when sending
+- Keep this folder, don't delete while sending
+
+data/
+- Stores message history CSV file
+- Keeps track of all sent messages
+- Contains MessageHistoryLog.csv
+
+templates/
+- Contains the HTML web page
+- The interface you see in browser
+
+================================================================================
+📌 IMPORTANT RULES FOR SUCCESS
+================================================================================
+
+DO:
+- Keep WhatsApp Web open and fully visible
+- Make sure browser window is not minimized
+- Wait for WhatsApp to load completely
+- Use correct phone format (+923001234567)
+- Use exact group names as they appear in WhatsApp
+- Make sure files exist before uploading
+
+DO NOT:
+- Touch mouse while program is sending
+- Type on keyboard while program is working
+- Minimize or close the browser
+- Switch to other tabs in browser
+- Put computer to sleep during sending
+- Use very large files over 100 MB

@@ -1,0 +1,11 @@
+{
+  "contacts": [],
+  "groups": [],
+  "templates": {
+    "welcome": "Hello {name}, welcome to {course} course! \ud83c\udf89",
+    "reminder": "Hi {name}, don't forget your {course} class tomorrow \ud83d\udcda",
+    "promotion": "Dear {name}, special offer for {course} students! \ud83c\udf81"
+  },
+  "history": [],
+  "sent_messages": []
+}

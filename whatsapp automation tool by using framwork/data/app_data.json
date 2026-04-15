@@ -1,0 +1,35 @@
+{
+  "contacts": [],
+  "groups": [],
+  "templates": {
+    "welcome": "Hello {name}, welcome to {course} course! 🎉",
+    "reminder": "Hi {name}, don't forget your {course} class tomorrow at 10 AM 📚",
+    "promotion": "Dear {name}, special 50% discount for {course} students! Limited time offer! 🎁"
+  },
+  "history": [
+    {
+      "id": "ae488520-24c",
+      "target": "+923013286671",
+      "message": "hi",
+      "media": "C:\\Users\\hasna\\Desktop\\pi\\whatsapp automation tool by using framwork\\uploads\\images\\WhatsApp_Image_2026-04-13_at_8.39.11_PM_2_1.jpeg",
+      "is_group": false,
+      "status": "Sent",
+      "datetime": "2026-04-16T02:03:04.142686"
+    }
+  ],
+  "scheduled": [],
+  "sent_messages": [
+    "+923013286671:hi:C:\\Users\\hasna\\Desktop\\pi\\whatsapp automation tool by using framwork\\uploads\\images\\WhatsApp_Image_2026-04-13_at_8.39.11_PM_2_1.jpeg"
+  ],
+  "media_files": [
+    {
+      "id": "47824512-0c1",
+      "filename": "WhatsApp_Image_2026-04-13_at_8.39.11_PM_2_1.jpeg",
+      "original_name": "WhatsApp_Image_2026-04-13_at_8.39.11_PM_2.jpeg",
+      "path": "C:\\Users\\hasna\\Desktop\\pi\\whatsapp automation tool by using framwork\\uploads\\images\\WhatsApp_Image_2026-04-13_at_8.39.11_PM_2_1.jpeg",
+      "type": "images",
+      "size": 46887,
+      "uploaded": "2026-04-16T02:02:24.725130"
+    }
+  ]
+}

@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WhatsApp Automation - Media Support</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+    <style>
+        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .main-container { max-width: 1200px; margin: 20px auto; }
+        .app-header { background: #075E54; color: white; padding: 20px; border-radius: 15px 15px 0 0; }
+        .app-content { background: white; border-radius: 0 0 15px 15px; padding: 30px; }
+        .btn-whatsapp { background: #25D366; color: white; font-weight: bold; padding: 12px 30px; border: none; border-radius: 50px; }
+        .attachment-area { border: 2px dashed #ddd; border-radius: 10px; padding: 20px; text-align: center; cursor: pointer; }
+        .attachment-area:hover { border-color: #25D366; background: #f8f9fa; }
+        .file-attached { border-color: #25D366; background: #DCF8C6; }
+        .media-btn { padding: 8px 16px; margin: 3px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="app-header">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h2><i class="bi bi-whatsapp"></i> WhatsApp Automation</h2>
+                    <p>✅ Images • Videos • Audio • Documents Support</p>
+                </div>
+                <button class="btn btn-light" onclick="openWhatsAppWeb()">📱 Open WhatsApp Web</button>
+            </div>
+        </div>
+
+        <div class="app-content">
+            <div class="alert alert-warning">
+                <i class="bi bi-info-circle"></i> Keep WhatsApp Web OPEN and VISIBLE. DO NOT touch mouse/keyboard while sending.
+            </div>
+
+            <ul class="nav nav-tabs mb-4">
+                <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#single">👤 Single</button></li>
+                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#group">👥 Group</button></li>
+                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#bulk">📋 Bulk</button></li>
+                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#history">📊 History</button></li>
+            </ul>
+
+            <div class="tab-content">
+                <!-- Single Tab -->
+                <div class="tab-pane fade show active" id="single">
+                    <h4>Send Individual Message</h4>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label>📞 Phone Number</label>
+                            <input type="text" class="form-control" id="singlePhone" value="+" placeholder="+923001234567">
+                        </div>
+                        <div class="col-md-6">
+                            <label>👤 Name (Optional)</label>
+                            <input type="text" class="form-control" id="singleName" placeholder="John Doe">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <label>💬 Message</label>
+                        <textarea class="form-control" id="singleMessage" rows="3" placeholder="Type your message..."></textarea>
+                        <small><span id="singleCharCount">0</span> characters</small>
+                    </div>
+                    <div class="mt-3">
+                        <label>📎 Attachment</label>
+                        <div class="btn-group w-100 mb-2">
+                            <button class="btn btn-outline-success media-btn" onclick="document.getElementById('singleImageInput').click()">🖼️ Image</button>
+                            <button class="btn btn-outline-primary media-btn" onclick="document.getElementById('singleVideoInput').click()">🎥 Video</button>
+                            <button class="btn btn-outline-warning media-btn" onclick="document.getElementById('singleAudioInput').click()">🎵 Audio</button>
+                            <button class="btn btn-outline-secondary media-btn" onclick="document.getElementById('singleDocInput').click()">📄 Document</button>
+                        </div>
+                        <input type="file" id="singleImageInput" accept="image/*" style="display:none" onchange="handleFileSelect(this, 'single', 'image')">
+                        <input type="file" id="singleVideoInput" accept="video/*" style="display:none" onchange="handleFileSelect(this, 'single', 'video')">
+                        <input type="file" id="singleAudioInput" accept="audio/*" style="display:none" onchange="handleFileSelect(this, 'single', 'audio')">
+                        <input type="file" id="singleDocInput" accept=".pdf,.doc,.docx,.txt,.zip" style="display:none" onchange="handleFileSelect(this, 'single', 'document')">
+                        <div class="attachment-area" id="singleAttachmentArea" onclick="document.getElementById('singleDocInput').click()">
+                            <i class="bi bi-cloud-upload fs-1"></i>
+                            <p>Click to upload or use buttons above</p>
+                            <div id="singleFileInfo"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-whatsapp mt-3" onclick="sendSingleMessage()"><i class="bi bi-send"></i> Send Message</button>
+                </div>
+
+                <!-- Group Tab -->
+                <div class="tab-pane fade" id="group">
+                    <h4>Send Group Message</h4>
+                    <div class="mt-3">
+                        <label>👥 Group Name (exact match)</label>
+                        <input type="text" class="form-control" id="groupName" placeholder="Family Group">
+                    </div>
+                    <div class="mt-3">
+                        <label>💬 Message</label>
+                        <textarea class="form-control" id="groupMessage" rows="3" placeholder="Type your message..."></textarea>
+                    </div>
+                    <div class="mt-3">
+                        <label>📎 Attachment</label>
+                        <div class="btn-group w-100 mb-2">
+                            <button class="btn btn-outline-success media-btn" onclick="document.getElementById('groupImageInput').click()">🖼️</button>
+                            <button class="btn btn-outline-primary media-btn" onclick="document.getElementById('groupVideoInput').click()">🎥</button>
+                            <button class="btn btn-outline-warning media-btn" onclick="document.getElementById('groupAudioInput').click()">🎵</button>
+                            <button class="btn btn-outline-secondary media-btn" onclick="document.getElementById('groupDocInput').click()">📄</button>
+                        </div>
+                        <input type="file" id="groupImageInput" accept="image/*" style="display:none" onchange="handleFileSelect(this, 'group', 'image')">
+                        <input type="file" id="groupVideoInput" accept="video/*" style="display:none" onchange="handleFileSelect(this, 'group', 'video')">
+                        <input type="file" id="groupAudioInput" accept="audio/*" style="display:none" onchange="handleFileSelect(this, 'group', 'audio')">
+                        <input type="file" id="groupDocInput" accept=".pdf,.doc,.docx,.txt,.zip" style="display:none" onchange="handleFileSelect(this, 'group', 'document')">
+                        <div class="attachment-area" id="groupAttachmentArea">
+                            <i class="bi bi-cloud-upload fs-1"></i>
+                            <div id="groupFileInfo"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-whatsapp mt-3" onclick="sendGroupMessage()"><i class="bi bi-send"></i> Send to Group</button>
+                </div>
+
+                <!-- Bulk Tab -->
+                <div class="tab-pane fade" id="bulk">
+                    <h4>Bulk Messaging</h4>
+                    <div class="mt-3">
+                        <label>📂 Upload CSV</label>
+                        <input type="file" class="form-control" id="csvFile" accept=".csv" onchange="loadCSV(this)">
+                        <small>Format: type,recipient,name (type: individual or group)</small>
+                    </div>
+                    <div id="contactsPreview" class="mt-2"></div>
+                    <div class="mt-3">
+                        <label>💬 Message</label>
+                        <textarea class="form-control" id="bulkMessage" rows="3"></textarea>
+                    </div>
+                    <div class="mt-3">
+                        <label>📎 Attachment (same for all)</label>
+                        <input type="file" id="bulkFileInput" style="display:none" onchange="handleFileSelect(this, 'bulk', 'auto')">
+                        <div class="attachment-area" onclick="document.getElementById('bulkFileInput').click()">
+                            <div id="bulkFileInfo">Click to upload</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-whatsapp mt-3" onclick="sendBulkMessages()" id="bulkSendBtn" disabled>Send to All</button>
+                </div>
+
+                <!-- History Tab -->
+                <div class="tab-pane fade" id="history">
+                    <h4>Message History</h4>
+                    <button class="btn btn-outline-primary btn-sm me-2" onclick="refreshHistory()">🔄 Refresh</button>
+                    <button class="btn btn-outline-danger btn-sm me-2" onclick="clearHistory()">🗑️ Clear</button>
+                    <button class="btn btn-outline-success btn-sm" onclick="exportHistory()">📥 Export CSV</button>
+                    <div class="table-responsive mt-3">
+                        <table class="table table-hover">
+                            <thead><tr><th>Time</th><th>Type</th><th>Recipient</th><th>Message</th><th>Status</th></tr></thead>
+                            <tbody id="historyTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container mt-4" id="progressSection" style="display:none; background:#f0f0f0; padding:15px; border-radius:10px;">
+                <div class="d-flex justify-content-between">
+                    <span id="progressStatus">Ready</span>
+                    <div class="spinner-border spinner-border-sm text-success"></div>
+                </div>
+                <div class="progress mt-2"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const socket = io();
+        let attachments = { single: null, group: null, bulk: null };
+        let bulkContacts = [];
+
+        socket.on('send_started', d => { showProgress(true); updateProgress(10, d.message); });
+        socket.on('progress_update', d => updateProgress(null, d.status));
+        socket.on('bulk_progress', d => updateProgress((d.current/d.total)*100, `Sending to ${d.contact} (${d.current}/${d.total})`));
+        socket.on('send_complete', d => { showProgress(false); alert(d.message); refreshHistory(); });
+
+        function showProgress(s) { document.getElementById('progressSection').style.display = s ? 'block' : 'none'; }
+        function updateProgress(p, s) {
+            if (p !== null) document.getElementById('progressBar').style.width = p + '%';
+            if (s) document.getElementById('progressStatus').textContent = s;
+        }
+        function openWhatsAppWeb() { window.open('https://web.whatsapp.com', '_blank'); }
+
+        function handleFileSelect(input, type, fileType) {
+            const file = input.files[0]; if (!file) return;
+            const formData = new FormData(); formData.append('file', file);
+            fetch('/api/upload', { method: 'POST', body: formData })
+                .then(r => r.json()).then(d => {
+                    if (d.success) {
+                        attachments[type] = d.file;
+                        const icons = { image: '🖼️', video: '🎥', audio: '🎵', document: '📄' };
+                        document.getElementById(type + 'FileInfo').innerHTML = `${icons[d.file.type] || '📎'} ${d.file.name} (${d.file.size})`;
+                        document.getElementById(type + 'AttachmentArea').classList.add('file-attached');
+                    }
+                });
+        }
+
+        function sendSingleMessage() {
+            const phone = document.getElementById('singlePhone').value.trim();
+            if (!phone || phone === '+') { alert('Enter phone number'); return; }
+            socket.emit('send_single', {
+                phone, name: document.getElementById('singleName').value.trim(),
+                message: document.getElementById('singleMessage').value.trim(),
+                attachment: attachments.single
+            });
+        }
+
+        function sendGroupMessage() {
+            const name = document.getElementById('groupName').value.trim();
+            if (!name) { alert('Enter group name'); return; }
+            socket.emit('send_group', {
+                groupName: name,
+                message: document.getElementById('groupMessage').value.trim(),
+                attachment: attachments.group
+            });
+        }
+
+        function loadCSV(input) {
+            const file = input.files[0]; if (!file) return;
+            const formData = new FormData(); formData.append('file', file);
+            fetch('/api/contacts/upload', { method: 'POST', body: formData })
+                .then(r => r.json()).then(d => {
+                    if (d.success) {
+                        bulkContacts = d.contacts;
+                        document.getElementById('bulkSendBtn').disabled = false;
+                        document.getElementById('contactsPreview').innerHTML = `<div class="alert alert-success">✅ ${d.count} contacts loaded</div>`;
+                    }
+                });
+        }
+
+        function sendBulkMessages() {
+            if (!bulkContacts.length) { alert('Load contacts first'); return; }
+            socket.emit('send_bulk', {
+                contacts: bulkContacts,
+                message: document.getElementById('bulkMessage').value.trim(),
+                attachment: attachments.bulk
+            });
+        }
+
+        function refreshHistory() {
+            fetch('/api/history').then(r => r.json()).then(h => {
+                const tbody = document.getElementById('historyTableBody'); tbody.innerHTML = '';
+                h.forEach(e => {
+                    const row = tbody.insertRow();
+                    row.innerHTML = `<td>${e.timestamp}</td><td>${e.recipientType}</td><td>${e.recipientName}<br><small>${e.recipient}</small></td><td>${e.message}</td><td><span class="badge bg-${e.status==='Sent'?'success':'danger'}">${e.status}</span></td>`;
+                });
+            });
+        }
+
+        function clearHistory() { if (confirm('Clear all history?')) fetch('/api/history', {method:'DELETE'}).then(() => refreshHistory()); }
+        function exportHistory() { window.location.href = '/api/history/export'; }
+
+        ['single', 'group', 'bulk'].forEach(t => {
+            document.getElementById(t+'Message')?.addEventListener('input', function() {
+                document.getElementById(t+'CharCount').textContent = this.value.length;
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', refreshHistory);
+    </script>
+</body>
+</html>
+    

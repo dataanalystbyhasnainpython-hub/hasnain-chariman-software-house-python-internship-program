@@ -1,0 +1,131 @@
+{
+  "contacts": [],
+  "templates": {
+    "welcome": "Hello {name}, welcome to {course}!",
+    "reminder": "Hi {name}, reminder for {course} class",
+    "promotion": "Dear {name}, special offer for {course}"
+  },
+  "history": [
+    {
+      "phone": "+923013286671",
+      "message": "hi jack",
+      "status": "Sent",
+      "datetime": "2026-04-15T23:46:50.327719",
+      "isgroup": false
+    },
+    {
+      "phone": "+923013286671",
+      "message": "hi jack",
+      "status": "Failed",
+      "datetime": "2026-04-15T23:47:54.180232",
+      "isgroup": false
+    },
+    {
+      "phone": "+923013286671",
+      "message": "hi jack",
+      "status": "Failed",
+      "datetime": "2026-04-15T23:48:03.862848",
+      "isgroup": false
+    },
+    {
+      "phone": "+923013286671",
+      "message": "kk",
+      "status": "Sent",
+      "datetime": "2026-04-15T23:49:43.069519",
+      "isgroup": false
+    },
+    {
+      "phone": "+923013286671",
+      "message": "hi jack",
+      "status": "Failed",
+      "datetime": "2026-04-15T23:59:25.557564",
+      "isgroup": false
+    },
+    {
+      "phone": "+923013286671",
+      "message": "hi jack",
+      "status": "Failed",
+      "datetime": "2026-04-15T23:59:47.957294",
+      "isgroup": false
+    },
+    {
+      "phone": "+923013286671",
+      "message": "hi jack",
+      "status": "Failed",
+      "datetime": "2026-04-16T00:00:12.821642",
+      "isgroup": false
+    },
+    {
+      "phone": "+923013286671",
+      "message": "jack",
+      "media": "C:\\Users\\hasna\\Desktop\\pi\\whatsapp automation tool by using framwork\\uploads\\documents\\Lab_-5.docx",
+      "status": "Failed",
+      "datetime": "2026-04-16T00:09:21.911676",
+      "isgroup": false
+    },
+    {
+      "id": 9,
+      "phone": "+923013286671",
+      "message": "jack",
+      "media": "C:\\Users\\hasna\\Desktop\\pi\\whatsapp automation tool by using framwork\\uploads\\documents\\Lab_-5.docx",
+      "status": "Failed",
+      "datetime": "2026-04-16T00:18:01.626953",
+      "isgroup": false
+    },
+    {
+      "id": 10,
+      "phone": "+923013286671",
+      "message": "hi jack do you like satoli",
+      "media": "C:\\Users\\hasna\\Desktop\\pi\\whatsapp automation tool by using framwork\\uploads\\documents\\Lab_-5.docx",
+      "status": "Sent",
+      "datetime": "2026-04-16T00:27:07.760298",
+      "isgroup": false
+    },
+    {
+      "id": 11,
+      "phone": "+923013286671",
+      "message": "faaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "media": "C:\\Users\\hasna\\Desktop\\pi\\whatsapp automation tool by using framwork\\uploads\\videos\\plasma_vortex_fixed.mp4",
+      "status": "Sent",
+      "datetime": "2026-04-16T00:35:24.478416"
+    },
+    {
+      "id": 12,
+      "phone": "+923013286671",
+      "message": "do uou like web aniamtion?",
+      "media": "C:\\Users\\hasna\\Desktop\\pi\\whatsapp automation tool by using framwork\\uploads\\images\\WhatsApp_Image_2026-04-13_at_8.39.11_PM_2.jpeg",
+      "status": "Sent",
+      "datetime": "2026-04-16T00:49:12.060641"
+    },
+    {
+      "id": 13,
+      "phone": "+923013286671",
+      "message": "hi tom",
+      "media": "C:\\Users\\hasna\\Desktop\\pi\\whatsapp automation tool by using framwork\\uploads\\images\\WhatsApp Image 2026-04-13 at 8.39.11 PM_1.jpeg",
+      "status": "Sent",
+      "datetime": "2026-04-16T01:28:55.542788"
+    }
+  ],
+  "requests": {},
+  "media_library": [
+    {
+      "id": "ce0853ce",
+      "filename": "WhatsApp Image 2026-04-13 at 8.39.11 PM_1.jpeg",
+      "original_name": "WhatsApp Image 2026-04-13 at 8.39.11 PM.jpeg",
+      "path": "C:\\Users\\hasna\\Desktop\\pi\\whatsapp automation tool by using framwork\\uploads\\images\\WhatsApp Image 2026-04-13 at 8.39.11 PM_1.jpeg",
+      "type": "images",
+      "size": 75111,
+      "uploaded": "2026-04-16T01:28:20.728317"
+    }
+  ],
+  "api_keys": {
+    "openai": "",
+    "claude": "",
+    "gemini": "",
+    "groq": "",
+    "together": "",
+    "deepseek": ""
+  },
+  "selected_api": "claude",
+  "selected_model": "claude-3-opus"
+}

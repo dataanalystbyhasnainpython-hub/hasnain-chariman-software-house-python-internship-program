@@ -1,0 +1,5 @@
+{
+  "welcome": "Hello {name}, welcome to {course}!",
+  "reminder": "Hi {name}, reminder for {course} class",
+  "promotion": "Dear {name}, special offer for {course}"
+}
